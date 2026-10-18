@@ -1,0 +1,68 @@
+@use './base/normalize.scss';
+@use './base/grid.scss';
+@use './blocks/header.scss';
+@use './blocks/footer.scss';
+
+
+body {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(#FEFCEFe6, #FEFCEFe6),
+    image-set("/assets/images/1.jpg", "/assets/images/1.webp", "/assets/images/1.avif", "/assets/images/1.png",
+    "/assets/images/1.tiff");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.scroll-block {
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #F5D730 #f1f1f1;
+}
+
+.scroll-block::-webkit-scrollbar {
+  width: 6px;
+}
+
+.scroll-block::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.scroll-block::-webkit-scrollbar-thumb {
+  background: #F5D730;
+  border-radius: 4px;
+}
+
+.scroll-block::-webkit-scrollbar-thumb:hover {
+  background: #917b03;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
