@@ -4,12 +4,9 @@
 @use './blocks/logo.scss';
 @use './blocks/sidebar.scss';
 @use './blocks/category.scss';
+@use './blocks/card.scss';
+@use './blocks/tabs.scss';
 @use './blocks/footer.scss';
-
-html {
-  font-family: "Open Sans", sans-serif;
-}
-
 
 body {
   position: relative;
@@ -17,10 +14,17 @@ body {
   overflow: hidden;
   background: linear-gradient(#FEFCEFe6, #FEFCEFe6),
     image-set("/assets/images/1.jpg", "/assets/images/1.webp", "/assets/images/1.avif", "/assets/images/1.png",
-    "/assets/images/1.tiff");
+      "/assets/images/1.tiff");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  line-height: 24px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: normal;
+  visibility: visible;
+  font-family: "Open Sans", sans-serif;
+  color: #444;
 }
 
 .scroll-block {
