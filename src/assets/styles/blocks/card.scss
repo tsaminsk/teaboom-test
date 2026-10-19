@@ -1,3 +1,61 @@
 .card {
+  width: 100%;
   padding: 16px 16px 16px 0;
+
+  &__body {
+    margin-bottom: 30px;
+  }
+
+  &__image {
+    display: flex;
+  }
+
+  &__image-preview {
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px 0 0;
+
+    img {
+      display: block;
+      transition: transform 0.3s ease-in-out;
+      margin-bottom: 12px;
+      border-radius: 6px;
+
+      &:not(.active) {
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      &.active {
+        border: 2px solid #FFCC99;
+      }
+    }
+  }
+
+  &__image-view {
+    position: relative;
+    flex: 1;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__image-show {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 20px;
+    height: 20px;
+    color: #80BC14;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #64940b;
+    }
+  }
 }
