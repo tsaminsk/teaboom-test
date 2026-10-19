@@ -20,11 +20,11 @@
       text-decoration: none;
     }
 
-    &:not(.tabs__head-item--active) a {
+    &:not(.tabs__head-item.active) a {
       cursor: pointer;
     }
 
-    &.tabs__head-item--active a {
+    &.tabs__head-item.active a {
       color: #fff;
     }
   }

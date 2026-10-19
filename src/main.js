@@ -13,9 +13,9 @@ if (data?.length && productsTypes) {
   const oldPrice = document.querySelector('#old-price')
 
   const updateProductData = (item) => {
-    sku.innerHTML = item.sku
-    weight.innerHTML = item.weight + ' г'
-    availability.innerHTML = item.availability
+    sku.innerHTML = `<b>${item.sku}</b>`;
+    weight.innerHTML = `<b>${item.weight} г</b>`;
+    availability.innerHTML = `<b>${item.availability}</b>`;
     price.innerHTML = formatNumber(item.price) + ' ₽'
     oldPrice.innerHTML = formatNumber(item.old_price) + ' ₽'
   }
@@ -44,6 +44,7 @@ if (data?.length && productsTypes) {
 // TABS
 const tabsBodyItems = document.querySelectorAll('.tabs__body-item')
 const toggleTabsBodyItemsClass = (id) => {
+  console.log('toggleTabsBodyItemsClass', id);
   tabsBodyItems.forEach((item) => {
     if (item.getAttribute('id') === id) {
       item.classList.remove('d-none')
@@ -55,35 +56,36 @@ const toggleTabsBodyItemsClass = (id) => {
 let tabsLinks = document.querySelectorAll('.tabs__head-item')
 if (tabsLinks?.length) {
   tabsLinks = [...tabsLinks]
-  
+
   tabsLinks.forEach((link) => {
-    if (window.location.hash) {
-      const hash = window.location.hash.replace('#', '')
-      if (link.querySelector(`[href="#${hash}"]`)) {
-        link.classList.add('tabs__head-item--active')
+    const urlParams = new URLSearchParams(window.location.search)
+    const activeTab = urlParams.get('tab')
+    if (activeTab) {
+      if (link.querySelector(`[data-tab="${activeTab}"]`)) {
+        link.classList.add('active')
       } else {
-        link.classList.remove('tabs__head-item--active')
+        link.classList.remove('active')
       }
-      toggleTabsBodyItemsClass(hash)
+      toggleTabsBodyItemsClass(activeTab)
     }
-    
+
     link.addEventListener('click', (e) => {
       e.preventDefault()
       e.stopPropagation()
-      const last = document.querySelector('.tabs__head-item--active')
+      const last = document.querySelector('.tabs__head-item.active')
       if (last) {
-        last.classList.remove('tabs__head-item--active')
+        last.classList.remove('active')
       }
-      link.classList.add('tabs__head-item--active')
-      history.pushState(null, null, link.children[0]?.getAttribute('href') ?? '')
-      const id = link.querySelector('a')?.getAttribute('href')?.replace('#', '')
-      toggleTabsBodyItemsClass(id)
+      link.classList.add('active')
+      const tabName = link.querySelector('a')?.dataset.tab
+      toggleTabsBodyItemsClass(tabName)
+      const newUrl = `${window.location.pathname}?tab=${tabName}`;
+      window.history.replaceState(null, '', newUrl);
     })
   })
 }
 
 // IMAGES
-
 const previewImages = document.querySelectorAll('.card__image-preview img')
 const viewImage = document.querySelector('#image-view')
 

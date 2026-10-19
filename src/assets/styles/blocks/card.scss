@@ -82,12 +82,20 @@
     background-color: #FEFCEF;
     border: 1px solid #efefef;
     border-radius: 4px;
-    cursor: pointer;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition:
+      border-color 0.3s ease-in-out,
+      background-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
 
-    &.active {
+    &.active,
+    &:not(.active):hover {
       border-color: #eedb60;
       box-shadow: 0 0 1px 1px #eedb60;
+      background-color: #f0e6a5;
+    }
+
+    &:not(.active) {
+      cursor: pointer;
     }
   }
 
@@ -96,6 +104,7 @@
     grid-template-columns: 1fr 1fr;
     width: 100%;
     font-size: 11px;
+    gap: 8px;
 
     >div {
       max-width: 100%;
@@ -106,7 +115,9 @@
 
     span.dots::after {
       content: "...................................................................";
-      letter-spacing: 4px;
+      letter-spacing: 2px;
+      font-size: 10px;
+      opacity: 0.3;
     }
   }
 
@@ -121,6 +132,7 @@
     font-size: 30px;
     font-weight: 700;
     margin-right: 12px;
+    color: rgb(223, 86, 7);
   }
 
   &__actions-old-price {
@@ -169,20 +181,45 @@
     &__description .card__title {
       display: none;
     }
+
+    &__product,
+    &__products-data {
+      font-size: 14px;
+      line-height: 1.5;
+    }
   }
 }
 
 @media (min-width: 1200px) {
   .card {
+    position: relative;
+
     &__body {
       display: flex;
       gap: 12px;
+    }
+
+    &__head {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 50%;
     }
 
     &__image,
     &__description {
       flex: 1;
       width: 50%;
+    }
+
+    &__description {
+      padding: 32px 0 0;
+    }
+
+    &__product,
+    &__products-data {
+      font-size: 16px;
+      line-height: 2;
     }
   }
 }
