@@ -2,12 +2,17 @@
   width: 100%;
   padding: 16px 16px 16px 0;
 
+  &__head .card__title {
+    display: none;
+  }
+
   &__body {
     margin-bottom: 30px;
   }
 
   &__image {
     display: flex;
+    user-select: none;
   }
 
   &__image-preview {
@@ -56,6 +61,128 @@
 
     &:hover {
       color: #64940b;
+    }
+  }
+
+  &__products {
+    padding-top: 24px;
+  }
+
+  &__products-types {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  &__product {
+    flex: 1;
+    font-size: 13px;
+    padding: 6px 12px;
+    background-color: #FEFCEF;
+    border: 1px solid #efefef;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    &.active {
+      border-color: #eedb60;
+      box-shadow: 0 0 1px 1px #eedb60;
+    }
+  }
+
+  &__products-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    font-size: 11px;
+
+    >div {
+      max-width: 100%;
+      padding: 0 6px 0 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    span.dots::after {
+      content: "...................................................................";
+      letter-spacing: 4px;
+    }
+  }
+
+  &__actions {
+    padding: 16px 0;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  &__actions-price {
+    font-size: 30px;
+    font-weight: 700;
+    margin-right: 12px;
+  }
+
+  &__actions-old-price {
+    text-decoration: line-through;
+    line-height: 1;
+  }
+
+  &__button {
+    width: 100%;
+    margin: 24px 0;
+    padding: 16px;
+    gap: 12px;
+    border: 1px solid #eedb60;
+    border-radius: 4px;
+    background-color: #FEFCEF;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 27px;
+    transition: background-color 0.3s ease-in-out,
+      box-shadow 0.3s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #eedb60;
+      box-shadow: 0 0 1px 1px #eedb60;
+    }
+  }
+
+  &__actions-comment {
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  &__actions-favorite {
+    margin-left: auto;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    &__head .card__title {
+      display: block;
+    }
+
+    &__description .card__title {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .card {
+    &__body {
+      display: flex;
+      gap: 12px;
+    }
+
+    &__image,
+    &__description {
+      flex: 1;
+      width: 50%;
     }
   }
 }

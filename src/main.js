@@ -1,5 +1,45 @@
 import './assets/styles/main.scss';
 
+import data from './data/ulun.json' with { type: 'json' };
+
+const formatNumber = num => Number(num).toLocaleString('ru-RU', { minimumFractionDigits: 2, maximumFractionDigits: 2 })?.replace(',', '.');
+
+const productsTypes = document.querySelector('#products-types')
+if (data?.length && productsTypes) {
+  const sku = document.querySelector('#sku')
+  const weight = document.querySelector('#weight')
+  const availability = document.querySelector('#availability')
+  const price = document.querySelector('#price')
+  const oldPrice = document.querySelector('#old-price')
+
+  const updateProductData = (item) => {
+    sku.innerHTML = item.sku
+    weight.innerHTML = item.weight + ' г'
+    availability.innerHTML = item.availability
+    price.innerHTML = formatNumber(item.price) + ' ₽'
+    oldPrice.innerHTML = formatNumber(item.old_price) + ' ₽'
+  }
+
+  data.forEach((item, i) => {
+    const product = document.createElement('div')
+    product.classList.add('card__product')
+    product.classList.add('text-center')
+    if (i === 0) {
+      product.classList.add('active')
+      updateProductData(item)
+    }
+    product.innerHTML = `${item.weight} г`
+    product.addEventListener('click', () => {
+      const active = document.querySelector('.card__product.active')
+      if (active) {
+        active.classList.remove('active')
+      }
+      product.classList.add('active')
+      updateProductData(item)
+    })
+    productsTypes.appendChild(product)
+  })
+}
 
 // TABS
 const tabsBodyItems = document.querySelectorAll('.tabs__body-item')
@@ -85,14 +125,16 @@ const openModal = () => {
 const imageShowButton = document.querySelector('#image-show')
 
 if(imageShowButton) {
-  imageShowButton.addEventListener('click', () => {
-    const src = viewImage.getAttribute('src')
-    const alt = viewImage.getAttribute('alt')
-    const modalImage = document.querySelector('#modal-image')
-    if (src && modalImage) {
-      modalImage.setAttribute('src', src)
-      modalImage.setAttribute('alt', alt ?? '')
-    }
-    openModal()
+  [viewImage, imageShowButton].forEach((el) => {
+    el.addEventListener('click', () => {
+      const src = viewImage.getAttribute('src')
+      const alt = viewImage.getAttribute('alt')
+      const modalImage = document.querySelector('#modal-image')
+      if (src && modalImage) {
+        modalImage.setAttribute('src', src)
+        modalImage.setAttribute('alt', alt ?? '')
+      }
+      openModal()
+    })
   })
 }
