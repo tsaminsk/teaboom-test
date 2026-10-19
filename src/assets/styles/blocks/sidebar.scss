@@ -1,3 +1,10 @@
 .sidebar {
-  width: 232px;
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .sidebar {
+      display: block;
+      width: 232px;
+    }
 }

@@ -27,12 +27,26 @@
     </header>
     <main class="flex-1">
       <div class="d-flex container" style="min-height: 300px; background-color: #F8F9F9;">
-        <div class="card flex-1">
+        <div class="card">
           <div class="card__head">
-            <h1 class="card__title"></h1>
+            <h1 class="card__title">Ананасовый улун</h1>
           </div>
           <div class="card__body">
-
+            <div class="card__image">
+              <div class="card__image-preview">
+                <img src="/assets/images/products/ulun/1.jpg" class="active" alt="Ананасовый улун" width="48" height="48" />
+                <img src="/assets/images/products/ulun/2.jpg" alt="Ананасовый улун 2" width="48" height="48" />
+                <img src="/assets/images/products/ulun/3.jpg" alt="Ананасовый улун 3" width="48" height="48" />
+              </div>
+              <div class="card__image-view">
+                <img id="image-view" src="/assets/images/products/ulun/1.jpg" alt="Ананасовый улун" />
+                <div id="image-show" class="card__image-show">
+                  <svg width="20" height="20">
+                    <use href="icons.svg#search-plus"></use>
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="card__tabs">
             <div class="tabs">
@@ -218,6 +232,18 @@
         </div>
       </div>
     </footer>
+  </div>
+  <div id="modal" class="modal">
+    <div class="modal__overlay h-100 flex-center">
+      <div class="modal__content">
+        <div class="modal__close">
+          <svg width="30" height="30" fill="#00f">
+            <use href="icons.svg#close-icon"></use>
+          </svg>
+        </div>
+        <img id="modal-image" src="" class="modal__image" alt=""></img>
+      </div>
+    </div>
   </div>
   <script type="module" src="/src/main.js"></script>
 </body>
