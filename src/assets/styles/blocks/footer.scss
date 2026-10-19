@@ -1,10 +1,11 @@
 .footer {
   min-height: 72px;
   background-color: #FEFCEF;
+  border-top: solid 1px #efefef;
 
   &__top {
     padding: 12px 0;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #efefef;
   }
 
   &__bottom {

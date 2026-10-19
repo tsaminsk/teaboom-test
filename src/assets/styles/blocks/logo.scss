@@ -1,0 +1,29 @@
+.logo {
+  position: relative;
+  display: block;
+  padding: 6px 6px 6px 62px;
+  text-decoration: none;
+
+  &__img {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 50px;
+  }
+
+  &__title {
+    padding: 6px 0 0;
+    margin: 0 0 6px;
+    color: #2b2a29;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    padding: 0;
+    margin: 0;
+    color: #2b2a29;
+    font-size: 12px;
+    font-weight: normal;
+  }
+}

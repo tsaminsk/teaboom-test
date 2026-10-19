@@ -1,6 +1,9 @@
 @use './base/normalize.scss';
 @use './base/grid.scss';
 @use './blocks/header.scss';
+@use './blocks/logo.scss';
+@use './blocks/sidebar.scss';
+@use './blocks/category.scss';
 @use './blocks/footer.scss';
 
 html {
@@ -71,6 +74,10 @@ body {
 
 .text-right {
   text-align: right;
+}
+
+.d-flex {
+  display: flex;
 }
 
 .b-red {
