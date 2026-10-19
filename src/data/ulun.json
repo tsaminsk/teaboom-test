@@ -1,0 +1,30 @@
+[
+  {
+    "weight": 100,
+    "sku": "01306",
+    "price": 326.4,
+    "old_price": 349.2,
+    "availability": "Много"
+  },
+  {
+    "weight": 500,
+    "sku": "01307",
+    "price": 1432,
+    "old_price": 1646,
+    "availability": "Меньше 100"
+  },
+  {
+    "weight": 1000,
+    "sku": "01308",
+    "price": 2064,
+    "old_price": 2592,
+    "availability": "Менее 1000"
+  },
+  {
+    "weight": 5000,
+    "sku": "01309",
+    "price": 6320,
+    "old_price": 8710,
+    "availability": "Много"
+  }
+]
